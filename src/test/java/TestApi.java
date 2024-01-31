@@ -1,4 +1,7 @@
-import com.google.gson.*;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import org.testng.annotations.Test;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -6,7 +9,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class TestApi {
-    public static void main(String[] args) {
+    @Test
+    public void apiTest() {
         String postUrl = "https://qauto.forstudy.space/api/cars/brands";
 
         try {
@@ -37,7 +41,6 @@ public class TestApi {
                     .getAsJsonObject();
             JsonArray jsonElement = jsonObject.getAsJsonArray("data");
             System.out.println(jsonElement.get(0).toString());
-
 
 
         } catch (Exception e) {
